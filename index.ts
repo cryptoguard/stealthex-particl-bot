@@ -142,14 +142,16 @@ bot.on(COMMAND_TYPES.EXCHANGE, async (req, resp) => {
         currency_from: from.toLowerCase(),
         currency_to: to.toLowerCase(),
         address_to: address,
-        amount_from: `${amount}`
+        amount_from: `${amount}`,
+        extra_id_to: '',
+        referral: ''
       }
     }).then((resp) => resp.body);
     console.log(exchange)
     resp.send({
       track_id: exchange.id,
       currency_from: exchange.currency_from,
-      currency_to: exchange.currency_to,  
+      currency_to: exchange.currency_to,
       amount_from: exchange.amount_from,
       amount_to: exchange.amount_to,
       address_from: exchange.address_from,
